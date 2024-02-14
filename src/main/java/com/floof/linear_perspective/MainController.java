@@ -23,14 +23,22 @@ public class MainController {
         Vector3D cameraDirection = new Vector3D(0, -0.05f, 0.99f);
         Camera camera = new Camera(cameraPosition, cameraDirection);
 
-        Geometry cube = makeCube();
+        Geometry cube1 = makeCube(0, 0, 8);
+        Geometry cube2 = makeCube(0.2f, 0, 8);
+        Geometry cube3 = makeCube(-0.2f, 0, 8);
+        Geometry cube4 = makeCube(0, -0.2f, 8);
+        Geometry cube5 = makeCube(0, 0.2f, 8);
         ArrayList<Geometry> geometries = new ArrayList<>();
-        geometries.add(cube);
+        geometries.add(cube1);
+        geometries.add(cube2);
+        geometries.add(cube3);
+        geometries.add(cube4);
+        geometries.add(cube5);
 
         return new Scene(camera, geometries);
     }
 
-    private Geometry makeCube() {
+    private Geometry makeCube(float x, float y, float z) {
         return new Geometry(Arrays.asList(
                 new Vector3D(0.5f, 0.5f, 0.5f),
                 new Vector3D(0.5f, 0.5f, -0.5f),
@@ -53,6 +61,6 @@ public class MainController {
                 new Pair<>(4, 6),
                 new Pair<>(1, 3),
                 new Pair<>(5, 7)
-        )), new Vector3D((float) 0, (float) 0, (float) 8), 1);
+        )), new Vector3D(x, y, z), 1);
     }
 }
