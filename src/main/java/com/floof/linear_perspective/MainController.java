@@ -19,15 +19,16 @@ public class MainController {
     }
 
     private Scene makeSceneWithCube() {
-        Vector3D cameraPosition = new Vector3D(0, 1, 0);
-        Vector3D cameraDirection = new Vector3D(0, -0.05f, 0.99f);
+        Vector3D cameraPosition = new Vector3D(0, 0, 0);
+        Vector3D cameraDirection = new Vector3D(0, 0, 1);
         Camera camera = new Camera(cameraPosition, cameraDirection);
 
         Geometry cube1 = makeCube(0, 0, 8);
-        Geometry cube2 = makeCube(0.2f, 0, 8);
-        Geometry cube3 = makeCube(-0.2f, 0, 8);
-        Geometry cube4 = makeCube(0, -0.2f, 8);
-        Geometry cube5 = makeCube(0, 0.2f, 8);
+        Geometry cube2 = makeCube(0.2f, 0, 12);
+        Geometry cube3 = makeCube(-0.2f, 0, 12);
+        Geometry cube4 = makeCube(0, -0.2f, 16);
+        Geometry cube5 = makeCube(0, 0.2f, 16);
+
         ArrayList<Geometry> geometries = new ArrayList<>();
         geometries.add(cube1);
         geometries.add(cube2);
