@@ -26,8 +26,8 @@ public class SceneAdapterI implements SceneAdapter {
 
         Vector3D vectorDisplacement = center.subtract(position.add(direction));
 
-        float xDisplacement = (screenWidth / 2) + vectorDisplacement.getX() * zoomCoefficient;
-        float yDisplacement = (screenHeight / 2) + vectorDisplacement.getY() * zoomCoefficient;
+        float xDisplacement = (screenWidth / 2) - vectorDisplacement.getX() * zoomCoefficient;
+        float yDisplacement = (screenHeight / 2) - vectorDisplacement.getY() * zoomCoefficient;
 
         scene.getProjectedScene().forEach(geometry -> {
             List<Circle> vertices = geometry.getVertices().stream().map(vertex ->

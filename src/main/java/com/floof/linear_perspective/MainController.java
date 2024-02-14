@@ -19,8 +19,8 @@ public class MainController {
     }
 
     private Scene makeSceneWithCube() {
-        Vector3D cameraPosition = new Vector3D(0, 0, 0);
-        Vector3D cameraDirection = new Vector3D(0.46f, 0, 0.89f);
+        Vector3D cameraPosition = new Vector3D(0, 1, 0);
+        Vector3D cameraDirection = new Vector3D(0, -0.05f, 0.99f);
         Camera camera = new Camera(cameraPosition, cameraDirection);
 
         Geometry cube = makeCube();
