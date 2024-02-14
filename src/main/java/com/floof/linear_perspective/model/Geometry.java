@@ -1,8 +1,5 @@
 package com.floof.linear_perspective.model;
 
-import com.floof.linear_perspective.model.Pair;
-import com.floof.linear_perspective.model.Vector3D;
-
 import java.util.List;
 
 public class Geometry {
@@ -16,12 +13,6 @@ public class Geometry {
         this.edges = edges;
         this.position = position;
         this.scale = scale;
-    }
-
-    public Geometry(List<Vector3D> vertices, List<Pair<Integer, Integer>> edges, Vector3D position) {
-        this.vertices = vertices;
-        this.edges = edges;
-        this.position = position;
     }
 
     public List<Vector3D> getVertices() {

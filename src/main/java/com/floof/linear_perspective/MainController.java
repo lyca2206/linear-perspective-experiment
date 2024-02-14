@@ -14,13 +14,13 @@ public class MainController {
 
     @FXML
     void initialize() {
-        SceneAdapter sceneAdapter = new SceneAdapterI(makeSceneWithCube(), 8);
-        mainView.getChildren().add(sceneAdapter.getRendering());
+        SceneAdapter sceneAdapter = new SceneAdapterI(makeSceneWithCube(), 2);
+        mainView.getChildren().add(sceneAdapter.getRendering(1280, 720, 2048));
     }
 
     private Scene makeSceneWithCube() {
         Vector3D cameraPosition = new Vector3D(0, 0, 0);
-        Vector3D cameraDirection = new Vector3D(0, 0 ,1);
+        Vector3D cameraDirection = new Vector3D(0, 0, 1);
         Camera camera = new Camera(cameraPosition, cameraDirection);
 
         Geometry cube = makeCube();
@@ -32,14 +32,14 @@ public class MainController {
 
     private Geometry makeCube() {
         return new Geometry(Arrays.asList(
-                new Vector3D(1, 1, 1),
-                new Vector3D(1, 1, -1),
-                new Vector3D(1, -1, 1),
-                new Vector3D(1, -1, -1),
-                new Vector3D(-1, 1, 1),
-                new Vector3D(-1, 1, -1),
-                new Vector3D(-1, -1, 1),
-                new Vector3D(-1, -1, -1)
+                new Vector3D(0.5f, 0.5f, 0.5f),
+                new Vector3D(0.5f, 0.5f, -0.5f),
+                new Vector3D(0.5f, -0.5f, 0.5f),
+                new Vector3D(0.5f, -0.5f, -0.5f),
+                new Vector3D(-0.5f, 0.5f, 0.5f),
+                new Vector3D(-0.5f, 0.5f, -0.5f),
+                new Vector3D(-0.5f, -0.5f, 0.5f),
+                new Vector3D(-0.5f, -0.5f, -0.5f)
         ), new ArrayList<>(Arrays.asList(
                 new Pair<>(0, 1),
                 new Pair<>(2, 3),
@@ -53,6 +53,6 @@ public class MainController {
                 new Pair<>(4, 6),
                 new Pair<>(1, 3),
                 new Pair<>(5, 7)
-        )), new Vector3D((float) 0, (float) 0, (float) 8));
+        )), new Vector3D((float) 0, (float) 0, (float) 8), 1);
     }
 }

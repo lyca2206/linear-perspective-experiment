@@ -17,12 +17,15 @@ public class SceneAdapterI implements SceneAdapter {
     }
 
     @Override
-    public Node getRendering() {
+    public Node getRendering(float screenWidth, float screenHeight, float zoomCoefficient) {
         Pane view = new Pane();
+
+        float xDisplacement = screenWidth / 2;
+        float yDisplacement = screenHeight / 2;
 
         scene.getProjectedScene().forEach(geometry -> {
             List<Circle> vertices = geometry.getVertices().stream().map(vertex ->
-                    new Circle(vertex.getX(), -vertex.getY(), radius)
+                    new Circle(vertex.getX() * zoomCoefficient + xDisplacement, -vertex.getY() * zoomCoefficient + yDisplacement, radius)
             ).toList();
 
             List<Line> edges = geometry.getEdges().stream().map(edge -> {
@@ -32,7 +35,10 @@ public class SceneAdapterI implements SceneAdapter {
                 Vector3D first = geometry.getVertices().get(fIndex);
                 Vector3D second = geometry.getVertices().get(sIndex);
 
-                return new Line(first.getX(), -first.getY(), second.getX(), -second.getY());
+                return new Line(
+                        first.getX() * zoomCoefficient + xDisplacement, -first.getY() * zoomCoefficient + yDisplacement,
+                        second.getX() * zoomCoefficient + xDisplacement, -second.getY() * zoomCoefficient + yDisplacement
+                );
             }).toList();
             view.getChildren().addAll(vertices);
             view.getChildren().addAll(edges);

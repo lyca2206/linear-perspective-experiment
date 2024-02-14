@@ -1,7 +1,5 @@
 package com.floof.linear_perspective.model;
 
-import com.floof.linear_perspective.model.Vector3D;
-
 public class Camera {
     private Vector3D position;
     private Vector3D direction;
