@@ -1,3 +1,3 @@
-# Experiments with a basic rendering engine.
+This is just an experiment with a bare-bones rendering engine, just to practice linear algebra.
 
-Apparently this is why you move the world view and not the camera lol.
+Note: Apparently this is why you move the world view and not the camera lol.
