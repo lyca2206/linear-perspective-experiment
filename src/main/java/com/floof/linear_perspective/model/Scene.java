@@ -25,7 +25,7 @@ public class Scene {
         return projectedGeometries;
     }
 
-    private Vector3D getProjection(Vector3D vector3D) {
+    public Vector3D getProjection(Vector3D vector3D) {
         Vector3D e = camera.getPosition();
         Vector3D t = camera.getDirection();
 

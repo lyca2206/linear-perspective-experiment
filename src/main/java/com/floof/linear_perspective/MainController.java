@@ -15,12 +15,12 @@ public class MainController {
     @FXML
     void initialize() {
         SceneAdapter sceneAdapter = new SceneAdapterI(makeSceneWithCube(), 2);
-        mainView.getChildren().add(sceneAdapter.getRendering(1280, 720, 2048));
+        mainView.getChildren().add(sceneAdapter.getRendering(1280, 720, 1024));
     }
 
     private Scene makeSceneWithCube() {
         Vector3D cameraPosition = new Vector3D(0, 0, 0);
-        Vector3D cameraDirection = new Vector3D(0, 0, 1);
+        Vector3D cameraDirection = new Vector3D(0.46f, 0, 0.89f);
         Camera camera = new Camera(cameraPosition, cameraDirection);
 
         Geometry cube = makeCube();

@@ -20,8 +20,14 @@ public class SceneAdapterI implements SceneAdapter {
     public Node getRendering(float screenWidth, float screenHeight, float zoomCoefficient) {
         Pane view = new Pane();
 
-        float xDisplacement = screenWidth / 2;
-        float yDisplacement = screenHeight / 2;
+        Vector3D center = scene.getProjection(new Vector3D(0, 0, 1));
+        Vector3D position = scene.getCamera().getPosition();
+        Vector3D direction = scene.getCamera().getDirection();
+
+        Vector3D vectorDisplacement = center.subtract(position.add(direction));
+
+        float xDisplacement = (screenWidth / 2) + vectorDisplacement.getX() * zoomCoefficient;
+        float yDisplacement = (screenHeight / 2) + vectorDisplacement.getY() * zoomCoefficient;
 
         scene.getProjectedScene().forEach(geometry -> {
             List<Circle> vertices = geometry.getVertices().stream().map(vertex ->

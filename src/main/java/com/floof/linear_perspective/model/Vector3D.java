@@ -15,6 +15,10 @@ public class Vector3D {
         return new Vector3D(x + vector3D.x, y + vector3D.y, z + vector3D.z);
     }
 
+    public Vector3D subtract(Vector3D vector3D){
+        return new Vector3D(x - vector3D.x, y - vector3D.y, z - vector3D.z);
+    }
+
     public Vector3D multiply(float value) {
         return new Vector3D(x * value, y * value, z * value);
     }
