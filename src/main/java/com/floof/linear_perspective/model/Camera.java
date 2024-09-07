@@ -1,27 +1,49 @@
 package com.floof.linear_perspective.model;
 
-public class Camera {
-    private Vector3D position;
-    private Vector3D direction;
+import com.floof.linear_perspective.collection.Vector3D;
+import com.floof.linear_perspective.library.MatrixOperations;
 
-    public Camera(Vector3D position, Vector3D direction) {
+public class Camera {
+    private final Vector3D position;
+    private final Vector3D xDirection;
+    private final Vector3D yDirection;
+    private final Vector3D zDirection;
+
+    public Camera(
+            MatrixOperations matrixOperations,
+            Vector3D position,
+            float xAxisRotation,
+            float yAxisRotation,
+            float zAxisRotation
+    ) {
         this.position = position;
-        this.direction = direction;
+
+        this.xDirection = matrixOperations.applyRotationToVector3D(
+                new Vector3D(1, 0, 0), xAxisRotation, yAxisRotation, zAxisRotation
+        );
+
+        this.yDirection = matrixOperations.applyRotationToVector3D(
+                new Vector3D(0, 1, 0), xAxisRotation, yAxisRotation, zAxisRotation
+        );
+
+        this.zDirection = matrixOperations.applyRotationToVector3D(
+                new Vector3D(0, 0, 1), xAxisRotation, yAxisRotation, zAxisRotation
+        );
     }
 
     public Vector3D getPosition() {
         return position;
     }
 
-    public void setPosition(Vector3D position) {
-        this.position = position;
+    public Vector3D getXDirection() {
+        return xDirection;
     }
 
-    public Vector3D getDirection() {
-        return direction;
+    public Vector3D getYDirection() {
+        return yDirection;
     }
 
-    public void setDirection(Vector3D direction) {
-        this.direction = direction;
+    public Vector3D getZDirection() {
+        return zDirection;
     }
 }

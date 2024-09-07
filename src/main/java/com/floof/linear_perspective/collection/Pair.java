@@ -1,4 +1,4 @@
-package com.floof.linear_perspective.model;
+package com.floof.linear_perspective.collection;
 
 public class Pair<T, U> {
     private T first;

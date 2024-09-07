@@ -1,5 +1,8 @@
 package com.floof.linear_perspective.model;
 
+import com.floof.linear_perspective.collection.Pair;
+import com.floof.linear_perspective.collection.Vector3D;
+
 import java.util.List;
 
 public class Geometry {

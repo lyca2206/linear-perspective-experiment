@@ -1,4 +1,4 @@
-package com.floof.linear_perspective.model;
+package com.floof.linear_perspective.collection;
 
 public class Vector3D {
     private float x;
